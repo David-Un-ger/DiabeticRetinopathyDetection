@@ -1,0 +1,67 @@
+mode:
+  value: "multi_class" # select from "multi_class", "binary_class" 
+
+# evaluate
+evaluate_run:
+  value: "davidu/diabetic_retinopathy/u5ltosw6"  # multi sweep 101 - leafy-sweep-11
+  #"davidu/diabetic_retinopathy/c0kshl58"  # multi sweep 101 - proud-sweep-31
+  #"davidu/diabetic_retinopathy/z89dlvr4"  # binary sweep 200 - different-sweep-13
+  
+# data
+n_classes:
+  value: 5
+data_dir:
+  value: "C:/DL_Lab/IDRID_dataset/" # specify the location of the dataset here or pass the path via command line
+val_split:
+  value: 0.8
+augmentation:
+  value: "weak"  # select from "none", "weak", "strong"
+augment_crop:
+  value: 550  # crops randomly this pixel size from the image
+img_width:
+  value: 600
+balancing:  # oversampling
+  value: True
+
+# train
+epochs:
+  value: 50
+batch_size:
+  value: 8  
+optimizer:
+  value: "sgd"
+learning_rate:
+  value: 0.001
+learning_rate_decay:
+  value: 1
+momentum:
+  value: 0.9
+fine_tuning:
+  value: False
+fine_tuning_learning_rate:
+  value: 0.001
+fine_tuning_epochs:
+  value: 0
+
+# architecture
+cnn_input_shape:
+  value: [224, 224, 3]
+architecture:
+  value: "resnet50"  # select from "vgg16" and "resnet50"
+base_model_trainable:
+  value: False
+dense0:
+  value: 4096
+dense1:
+  value: 512
+dense2:
+  value: 0
+c_d_interface:
+  value: "gap" # select from "flatten" and "gap"
+dropout:
+  value: 0.1
+reg_lambda:
+  value: 0.01
+w_init_HeNormal:
+  value: False
+
